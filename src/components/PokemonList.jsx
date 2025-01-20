@@ -6,7 +6,7 @@ const PokemonList = ({ pokemons, lastPokemonElementRef }) => {
     <div className="container">
       {pokemons.map((pokemon, index) => {
         if (pokemons.length === index + 1) {
-          return <PokemonCard ref={lastPokemonElementRef} key={pokemon.id} pokemon={pokemon} />;
+          return <PokemonCard key={pokemon.id} pokemon={pokemon} ref={lastPokemonElementRef} />;
         } else {
           return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
         }

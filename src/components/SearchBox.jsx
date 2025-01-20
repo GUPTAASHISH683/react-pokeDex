@@ -1,17 +1,20 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setSearchQuery } from '../store/pokemonSlice';
 
-const SearchBox = () => {
+const SearchBox = ({ searchQuery }) => {
   const dispatch = useDispatch();
-  const searchQuery = useSelector(state => state.pokemon.searchQuery);
+
+  const handleSearchChange = (e) => {
+    dispatch(setSearchQuery(e.target.value));
+  };
 
   return (
     <input
       type="text"
+      value={searchQuery}  // Bind the input value to the searchQuery from Redux
       placeholder="Search Pokémon"
-      value={searchQuery}
-      onChange={(e) => dispatch(setSearchQuery(e.target.value))}
+      onChange={handleSearchChange}
     />
   );
 };

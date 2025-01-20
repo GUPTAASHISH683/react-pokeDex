@@ -39,6 +39,12 @@ h1 {
   padding: 20px;
   text-align: center;
   transition: 0.4s ease;
+  cursor: pointer; /* Add cursor pointer */
+}
+
+.pokemon:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+  box-shadow: 0 5px 20px rgba(100, 100, 100, 0.7); /* Enhanced shadow on hover */
 }
 
 .pokemon .img-container {

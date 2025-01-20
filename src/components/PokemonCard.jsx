@@ -8,7 +8,7 @@ const colors = {
   ground: '#F4E7DA',
   rock: '#d5d5d4',
   fairy: '#fceaff',
-  poison: '#98d7a5',
+  poison: '#dfa7df',
   bug: '#f8d5a3',
   dragon: '#97b3e6',
   psychic: '#eaeda1',
@@ -20,12 +20,14 @@ const colors = {
 const main_types = Object.keys(colors);
 
 const PokemonCard = forwardRef(({ pokemon }, ref) => {
+  console.log("Rendering Pokémon Card:", pokemon); // Log the Pokémon data
+
   const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
   const id = pokemon.id.toString().padStart(3, '0');
   const poke_types = pokemon.types.map((type) => type.type.name);
   const type = main_types.find((type) => poke_types.indexOf(type) > -1);
   const color = colors[type];
-  const imgURL = pokemon.sprites.other['official-artwork'].front_default || 'fallback-image-url-here';
+  const imgURL = pokemon.sprites?.other['official-artwork']?.front_default || 'https://via.placeholder.com/120?text=No+Image';
 
   return (
     <div className="pokemon" style={{ backgroundColor: color }} ref={ref}>
